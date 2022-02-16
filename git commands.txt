@@ -1,0 +1,168 @@
+# Add file(s) to staging area for next commit and start tracking for changes
+git add <filename>	Adds specific file
+git add *.txt		Add all txt files in repo or project
+git add .			Add all files in repo or project
+
+
+# Commit changes in file(s)
+git commit -m "Msg"
+
+
+# Show status of files (tracked, untracked, modified, discard)
+git status
+
+
+# Show all commit history with message
+git log
+
+
+# Remove file(s) from staging area and stop tracking changes (unstage)
+git reset
+
+
+# Same as `git reset` but also discard changes
+git reset --hard
+
+
+# Show list of branches
+git branch
+
+
+# Show list of branches with some details
+git branch -v
+
+
+# Creates new branch
+git branch <branch_name>
+
+
+# Switch to particular branch
+git checkout <branch_name>
+
+
+# Merge particular branch to currently active branch
+git merge <branch_name>
+
+
+# Show commit differences between two branches
+git log <branch_01>..<branch_02>
+
+
+# Save local changes in stash clipboard or stash history (Temporarily commit changes)
+git stash
+
+
+# Save local changes in stash history or stash clipboard with provided name
+git stash save <stash_name>
+
+
+# Display list of all stashes in stash history
+git stash list
+
+
+# Apply latest stash from stash history or stash clipboard and removes stash from clipboard
+git stash pop
+
+
+# Apply specific stash from stash history or clipboard and keep it in stash clipboard
+git stash apply <stash_name>
+- git stash apply stash@{0}
+
+# Clears stash history or clipboard
+git stash clear
+
+
+# Push changes to remote repository
+git push
+
+
+# Fetch changes from remote repository but don't apply changes
+git fetch
+
+
+# Merge or apply changes which were fetched by `git fetch` command
+git merge
+
+
+# Fetch and merge changes from remote repository (same as `git fetch && git merge`)
+git pull
+
+
+# It shows that local repo is connected to which remote repos (Show remote urls)
+git remote -v
+
+
+# It shows all details of remote repos
+git remote show <remote_repo_name>
+- git remote show origin
+
+
+# Adds remote repository or connect local repo to remote repo (Publish local repo to Github)
+git remote add <repo_name> <remote_repo_url>
+- git remote add origin https://github.com/username/repo.git
+
+
+# This command is used only once for first time when you publish local repo to Github or connect it to remote repo also when you create new branch
+# "-u" flag is important as it established a tracking connection between local and remote repo
+git push -u <remote_repo_name> <remote_branch_name>
+- git push -u origin master
+
+
+# Show logs of remote repository of particular branch
+git log <remote_repo_name>/<remote_branch_name>
+- git log origin/master
+
+
+# Create new branch with specified name
+git branch <new_branch_name>
+
+
+# Switch to specific branch
+git checkout <branch_name>
+
+
+# Deletes branch locally
+git branch -d <branch_name>
+
+
+# Deletes branch remotely but not from GitHub
+git branch -dr <remote_repo_name>/<remote_branch_name>
+- git branch -dr origin/dev
+
+
+# Deletes branch from GitHub
+git push origin --delete <remote_branch_name>
+- git push origin --delete dev
+
+
+# Discard changes in single file
+git checkout HEAD <filename>
+
+
+# Discard all changes that are not committed
+git reset --hard HEAD
+
+
+# Undo or discard committed changes but donot actually delete any commit
+# It revert the effect(s) of a certain commit, effectively undoing it. It does by producing a new commit with changes that revert each of the changes in that unwanted commit.
+# View commit hash from running `git log` command
+git revert <commit_hash>
+- git revert 29f39df92ef4bc0d30d72a62b7d271a7538d43af
+# Eg: If your original commit added a word in a certain place, then reverting commit will remove exactly this word and makes new commit with this change (removed word)
+
+
+# Undo or discard committed changes, it neither produces any new commit or deletes the old one.
+# It works by resetting/moving current HEAD to an older version/commit (also called rolling back to that older version)
+# When you roll back, it removes all the previous commit history until that specified commit hash in this command
+# View commit hash from running `git log` command
+git reset --hard <commit_hash>
+- git reset --hard 29f39df92ef4bc0d30d72a62b7d271a7538d43af
+
+
+# All changes from rolled back revisions will be preserved as local changes in working directory
+git reset --keep <commit_hash>
+
+
+# Need to forcefully push changes after running `git reset --hard <commit_hash>` command to reflect changes in GitHub also.
+git push -f <remote_repo_name> <remote_branch_name>
+- git push -f origin master
