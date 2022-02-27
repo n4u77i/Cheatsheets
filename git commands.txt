@@ -166,3 +166,53 @@ git reset --keep <commit_hash>
 # Need to forcefully push changes after running `git reset --hard <commit_hash>` command to reflect changes in GitHub also.
 git push -f <remote_repo_name> <remote_branch_name>
 - git push -f origin master
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--> Merge is dead simple. When a branch is created suppose <dev-branch> from <master-branch>, now both branches have same commit history till now. Now you make additional commits in <dev-branch>, the merge command will simply merge branches by taking additional commits made in <dev-branch> and add them to the commit history of <master-branch>.
+
+--> Merge: Fast-Forward
+When two of the branches doesn't have any new commits since branching happened, their latest commit is still the common ancestor.
+
+C1 <-------------------------- Branch A
+ ^
+  \
+   \
+    C2 <--- C3 --------------- Branch B
+	
+where:		C1 = Common ancestor
+			C1 is last commit on Branch A
+			
+Git can just add all the commits of the other branch on top of the common ancestor commit. This simplest form of integration is called 'Fast-Forward' merge. Both branches then share the exact same commit history.
+
+C1 <--- C2 <--- C3 <----------- Branch A, Branch B
+Both branches have same history after Fast-Forward.
+
+--> Merge: Merge-Commit
+In a lot of cases after branching happened, however both branches moved forward individually and so both can have different additional commits. Both branches have commits that are done after branch created.
+
+C1 <------- C3 <-------------------- Branch A
+ ^
+  \
+   \
+    C2 <------- C4 <---------------- Branch B
+	
+where:		C1 = Common ancestor
+			C3 = Branch A last commit
+			C4 = Branch B last commit
+			
+Git will create a new commit that contains the differences between the commits of both branches A and B.
+
+C1 <------- C3 <------- C5 <------- Branch A
+ ^
+  \
+   \
+    C2 <------- C4 <---------------- Branch B
+	
+where:		C1 = Common ancestor
+			C3 = Branch A last commit
+			C4 = Branch B last commit
+			C5 = Merge commit
+			
+Git automatically created merge-commit C5 in Branch A when merging Branch B in Branch A.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
