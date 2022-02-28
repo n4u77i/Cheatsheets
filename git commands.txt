@@ -168,6 +168,10 @@ git push -f <remote_repo_name> <remote_branch_name>
 - git push -f origin master
 
 
+# Rebase will apply commits of specified branch in the current branch and make a single line of commits. For detailed explanation, look below.
+git rebase <branch_name>
+
+
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --> Merge is dead simple. When a branch is created suppose <dev-branch> from <master-branch>, now both branches have same commit history till now. Now you make additional commits in <dev-branch>, the merge command will simply merge branches by taking additional commits made in <dev-branch> and add them to the commit history of <master-branch>.
 
@@ -215,4 +219,61 @@ where:		C1 = Common ancestor
 			C5 = Merge commit
 			
 Git automatically created merge-commit C5 in Branch A when merging Branch B in Branch A.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+In Merge-Commit or Fast-Forward, an additional commit is made for identification that where two branches are comitted together. Sometime we don't want such automatic merge commits.
+We want the history to look as if it had evolved in a single straight line. No indication remains that it had split into multiple branches at some point. Rebase is then used for this purpose.
+
+--> Rebase doesnot manage splitting of branches, it merge in a way that all commits are of single branch.
+
+C1 <------- C3 <-------------------- Branch-A
+ ^
+  \
+   \
+    C2 <------- C4 <---------------- Branch-B
+	
+where:		C1 = Common ancestor
+			C3 = Branch A last commit
+			C4 = Branch B last commit
+			
+1) When `git rebase Branch-B` executes, Git will undo all commits on Branch-A till the point where branching happened (after common ancestor commit). However, git won't discard them instead think of those commits as being "saved away temporarily".
+
+			C3
+			^
+			|
+			|
+			|
+C1 <-------- ----------------------- Branch-A
+ ^
+  \
+   \
+    C2 <------- C4 <---------------- Branch-B
+
+Git will undo (temporary save) all commits Branch-A after common ancestor.
+
+2) Now the commits of Branch-B will be merged into Branch-A
+
+					C3
+
+C1 <------- C2 <------- C4 <------- Branch-A --------------- Branch-B
+
+Git will apply the commits from Branch-B that we want to integrate. At this point, both branches look exactly the same.
+
+3) Now the commits of Branch-A will will be applied.
+
+								Branch-A
+									^
+									|
+									|
+C1 <------- C2 <------- C4 <------- C3* <----------------------
+						 |
+						 |
+						 \/
+						 Branch-B
+						 
+where:		C3* = New commit that contains changes of Branch-A C3 commit with some adjustments
+						 
+Git applied Branch-A commits in the end.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
