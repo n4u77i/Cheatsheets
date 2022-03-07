@@ -108,6 +108,10 @@ git push -u <remote_repo_name> <remote_branch_name>
 - git push -u origin master
 
 
+# If the remote repository is private, then set its URL by following command
+git remote set-url origin https://<YOUR_GITHUB_USER>@github.com/<remote_repo_name>
+- git remote set-url origin https://n4u77i@github.com/n4u77i/Cheatsheetsgit
+
 # Show logs of remote repository of particular branch
 git log <remote_repo_name>/<remote_branch_name>
 - git log origin/master
