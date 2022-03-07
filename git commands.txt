@@ -244,11 +244,11 @@ where:		C1 = Common ancestor
 			
 1) When `git rebase Branch-B` executes, Git will undo all commits on Branch-A till the point where branching happened (after common ancestor commit). However, git won't discard them instead think of those commits as being "saved away temporarily".
 
-			C3
-			^
-			|
-			|
-			|
+	    C3
+	    ^
+	    |
+	    |
+	    |
 C1 <-------- ----------------------- Branch-A
  ^
   \
@@ -259,7 +259,7 @@ Git will undo (temporary save) all commits Branch-A after common ancestor.
 
 2) Now the commits of Branch-B will be merged into Branch-A
 
-					C3
+				C3
 
 C1 <------- C2 <------- C4 <------- Branch-A --------------- Branch-B
 
@@ -267,15 +267,15 @@ Git will apply the commits from Branch-B that we want to integrate. At this poin
 
 3) Now the commits of Branch-A will will be applied.
 
-								Branch-A
-									^
-									|
-									|
+				Branch-A
+				     ^
+				     |
+				     |
 C1 <------- C2 <------- C4 <------- C3* <----------------------
-						 |
-						 |
-						 \/
-						 Branch-B
+			|
+			|
+			\/
+			Branch-B
 						 
 where:		C3* = New commit that contains changes of Branch-A C3 commit with some adjustments
 						 
