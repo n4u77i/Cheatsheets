@@ -1,0 +1,42 @@
+# Check docker version, also tells if the docker server and docker client is running.
+docker version
+
+
+# Tells the version of docker.
+docker --version
+
+
+# Runs a container.
+docker container run <IMAGE_NAME>
+docker run <IMAGE_NAME>
+- docker container run ubuntu
+
+
+# Pulls an image from docker hub.
+docker pull <IMAGE_NAME>
+
+
+# List docker images/processes which are running.
+docker ps
+
+
+# List all docker images/processes which are started or exited.
+docker ps -a
+
+
+# List all docker images/containers.
+docker container ls --all
+
+
+# Run docker image in interactive mode.
+docker container run -it <IMAGE_NAME>
+docker run -it <IMAGE_NAME>
+
+
+# Start docker image in interactive mode (same as above). Conatiner IDs can be seen using `docker ps -a` command.
+docker start -i <CONTAINER_ID>
+- docker start -i 34fr34ew
+
+
+# Run another interactive bash session inside a container (same as above).
+docker exec -it <CONTAINER_ID> bash
