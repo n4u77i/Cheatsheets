@@ -1,0 +1,48 @@
+Dockerfile instructions for building an image
+
+FROM				To specify the base image which contains files and directories and we build an image on top of it.
+WORKDIR				To specify the working directory. One we use this command, all commands will be executed within this working directory.
+
+COPY ----|
+		 |----->	To copy files and directories.
+ADD -----|
+ADD					ADD has additional two features, i.e copy file from URL to destination or it uncompressess the zipped file after copying to destination
+					ADD https://..../file.json /destination/directory
+					ADD file.zip /destination/directory
+
+RUN					To execute OS commands it could be windows or linux commands.
+ENV					For setting environment variables.
+EXPOSE				To tell docker that container will start on a given port. The container will listen on a given port. We need to map port on host to port on a docker to work properly.
+USER				The user which should run the application typically, to run application with the user having limited previliges.
+					By default, docker runs container with root user whcih opens security holes. To avoid this create a new user with limited previliges and assign that user.
+					
+					For alpine image: RUN addgroup app_user && adduser -SG app_user app_user
+									  USER app_user
+					First command will create the app_user group and then create the app_user user and add it to the group. "-S" flag makes a system user.
+					Then second command will set USER as app_user and all commands will run with this user.
+
+CMD ----------|
+			  |-->	To specify a command which should be executed when we run the container. This will be the default command when container will start/run.
+ENTRYPOINT ---|
+
+
+
+Notes:
+1) Writing multiple CMD/ENTRYPOINT commands should be avoided as on the last command will be executed. This is so because CMD/ENTRYPOINT is the default command whenever container runs.
+
+2) RUN instruction is built-in instruction, so it will be executed at the time of building image. In contrast CMD is runtime instruction which will be executed when container starts.
+
+3) CMD command has two variants
+# Shell form which is /bin/sh in linux and cmd in windows. Docker will run this command inside a sepearte shell
+CMD npm start
+
+# Exec form. Always use this form as it doesnot spawn a new shell evertytime and cleans up things at the end. Also it is a preferred way.
+CMD ["npm", "start"]
+
+4) When starting a container you can provide a shell command as an argument. So if we use CMD instruction, we can override the default command by passing a shell command as an argument. But in case of ENTRYPOINT, this default command cannot be overriden easily. We then need use the "--entrypoint" flag and supply the shell command to override.
+`docker run flask_app --entrypoint ls -la`
+Above command will override the default command if ENTRYPOINT instruction is used in Dockerfile.
+
+5) An image has collection of layers. Each instruction inside a Dockerfile make a layer. Think of layer as a small filesystem that only includes modified files so when docker tries to build and image for us, it executes each instruction and builds a newlayer. That layer only include the files which were modified as a result of that instruction.
+So next time when we create an image docker will look each instruction if it is changed or not. If its not changed, docker will reuse it from its cache which is an optimization technique used by docker called Layer Caching.
+So to optimize image rebuilds, we should organize our Dockerfile such that the instructions that don't change frequently should be on the top and the instructions or file which changes frequently should be down the bottom.

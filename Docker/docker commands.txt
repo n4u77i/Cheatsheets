@@ -1,0 +1,133 @@
+# Check docker version, also tells if the docker server and docker client is running.
+docker version
+
+
+# Tells the version of docker.
+docker --version
+
+
+# Runs a container.
+docker container run <IMAGE_NAME>
+docker run <IMAGE_NAME>
+- docker container run ubuntu
+
+
+# Pulls an image from docker hub.
+docker pull <IMAGE_NAME>
+docker image pull <IMAGE_NAME>
+
+
+# List all docker images
+docker images
+docker image ls
+
+
+# List docker containers/processes which are running.
+docker ps
+
+
+# List all docker containers/processes which were started or exited.
+# "-a" flag is used for all
+docker ps -a
+
+
+# List all docker containers.
+docker container ls --all
+
+
+# Run docker image in interactive mode.
+# "-i" flag is used for interactive
+# "-t" flag is used for tty
+docker container run -it <IMAGE_NAME>
+docker run -it <IMAGE_NAME>
+
+
+# Start docker image in interactive mode (same as above). Conatiner IDs can be seen using `docker ps -a` command.
+docker start -i <CONTAINER_ID>
+- docker start -i 5a7615652878
+
+
+# Run docker container with an OS command
+docker container run <IMAGE_NAME> <COMMAND>
+docker container run flask_app ls -la
+
+
+# Run another interactive bash/shell session inside a container (same as above).
+docker exec -it <CONTAINER_ID> <<bash|sh>>
+
+
+# To create docker image.
+# "-t" flag is used as tag to name the image, ":" is used add a tag to image
+docker build -t <IMAGE_NAME>:<TAG_NAME|Optional> <PATH_TO_DOCKERFILE_OF_PROJECT>
+docker build --tag <IMAGE_NAME>:<TAG_NAME|Optional> <PATH_TO_DOCKERFILE_OF_PROJECT>
+- docker build -t react_app .
+- docker build -t react_app:v1.0 .
+- docker build --tag react_app .
+
+
+# To view layers of an image (history of image).
+docker history <IMAGE_NAME>
+docker image history <IMAGE_NAME>
+
+
+# To remove all stopped containers.
+docker container prune
+
+
+# To remove all dangling images (loose images) which have no names and tags. These are the layers which are not tagged with any image. So when rebuilding the image, docker at some point lost relation to these layers with the image. Need to run `docker container prune` before running this command.
+docker image prune
+
+
+# To stop a container
+docker container stop <CONTAINER_ID>
+
+
+# To remove a specific container
+docker container rm <CONTAINER_ID>
+
+
+# To remove an image
+docker image rm <IMAGE_NAME|IMAGE_ID>
+docker image rmi <IMAGE_ID>
+- docker image rm flask_app
+- docker image rm 991337c2866e
+
+
+# To remove multiple images
+docker image rm <IMAGE_NAME|IMAGE_ID> <IMAGE_NAME|IMAGE_ID> <IMAGE_NAME|IMAGE_ID>
+
+
+# To add a tag to image after the image is created.
+docker image tag <IMAGE_ID> <TAG_NAME>
+docker image tag <IMAGE_NAME>:<IMAGE_TAG> <TAG_NAME>
+- docker image tag flask_app:latest flask_app:1.0.1
+
+
+# To share the image on DockerHub, we need to add a new tag to image as the name of repository
+docker image tag <IMAGE_ID> <DOCKER_USERNAME>/<DOCKER_REPO_NAME>:<TAG_NAME|optional>
+docker image tag 991337c2866e n4u77i/react_app:v1.0
+It's always a good practice to add a tag to image explicitly
+
+
+# To login to Docker in dockercli
+docker login
+
+
+# To push image to DockerHub
+docker push <IMAGE_ID>
+docker image push <IMAGE_ID>
+docker image push <DOCKER_NEW_TAG>
+- docker image push n4u77i/react_app:v1.0
+
+
+# To save image in a compressed file for transferring without pushing to DockerHub.
+# "-o" flag is used as output to specify the output filename.
+docker image save -o <TARGET_FILENAME> <IMAGE_NAME>:<IMAGE_TAG|optional>
+docker image save -o <TARGET_FILENAME> <IMAGE_ID>
+- docker image save -o django_app.zip django_app:2
+
+
+# To load image from a zipped file
+# "-i" flag is used as input file to load
+docker image load -i <TARGET_FILENAME>
+- docker image load -i django_app.zip
