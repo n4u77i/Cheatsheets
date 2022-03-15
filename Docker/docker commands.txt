@@ -52,6 +52,33 @@ docker container run <IMAGE_NAME> <COMMAND>
 docker container run flask_app ls -la
 
 
+# To run container in detached mode (background)
+# "-d" flag is used for detach
+docker run -d <IMAGE_NAME|IMAGE_ID>
+
+
+# To give name to the container when starting it.
+# "--name" flag is used to assign name to docker container.
+# "-d" flag is used for detach
+docker container run -d --name <SET_NAME_OF_CONTAINER> <IMAGE_NAME|IMAGE_ID>
+- docker container run -d --name react_app_container react_app
+
+
+# To publish port or map host port to docker container port.
+# "-p" flag is used to publish port
+# "--name" flag is used to assign name to docker container
+# "-d" flag is used for detach
+docker container run -d -p <HOST_PORT>:<DOCKER_PORT> --name <SET_NAME_OF_CONTAINER> <IMAGE_NAME|IMAGE_ID>
+- docker container run -d -p 80:3000 --name react_app_container react_app
+# DOCKER_PORT should be same as the port used in Dockerfile after EXPOSE instruction.
+# After executing above command, we can containerd app on port 80 from the host machine.
+
+
+# Execute commands in a running container
+docker exec <CONTAINER_ID|CONTAINER_NAME> <COMMAND>
+- docekr exec 9a4d94406bb3 ls -la
+
+
 # Run another interactive bash/shell session inside a container (same as above).
 docker exec -it <CONTAINER_ID> <<bash|sh>>
 
@@ -84,6 +111,11 @@ docker container stop <CONTAINER_ID>
 
 # To remove a specific container
 docker container rm <CONTAINER_ID>
+
+
+# To remove a specific container forcefully (even if the container is running).
+# "-f" flag is used as force remove
+docker container rm -f <CONTAINER_ID>
 
 
 # To remove an image
@@ -131,3 +163,52 @@ docker image save -o <TARGET_FILENAME> <IMAGE_ID>
 # "-i" flag is used as input file to load
 docker image load -i <TARGET_FILENAME>
 - docker image load -i django_app.zip
+
+
+# To view logs of a container which are running or were started.
+# "-f" flag is used as follow which means to display logs in realtime
+docker logs -f <CONTAINER_ID>
+docker container -f <CONTAINER_ID>
+
+
+# To persist data of containers we use volumes, to create volume
+docker volume create <VOLUME_NAME>
+
+
+# To view all volumes
+docker volume ls
+
+
+# To inspect or view details of docker volume
+docker volume inspect <VOLUME_NAME>
+
+
+# To remove a specific volume
+docker volume rm <VOLUME_NAME>
+
+
+# To remove all unused volumes
+docker volume prune
+
+
+# To assign volume to a container when running it.
+# "-v" flag is used as volume to assign it to docker container
+# "-p" flag is used to publish port
+# "-d" flag is used for detach
+docker container run -d -p <HOST_PORT>:<DOCKER_PORT> -v <VOLUME_NAME>:<PATH_OF_VOLUME> <IMAGE_NAME|IMAGE_ID>
+- docker container run -d -p 8000:3000 -v react_app_data:/app/data react_app
+# PATH_OF_VOLUME can be can path, it can also be the path of the volume which you created with `docker volume create` command
+# To view path of volume created, run `docker volume inspect` command
+# If PATH_OF_VOLUME doesnot exist, docker will automatically create it for us
+
+
+# Copy files or directories from docker container to host machine.
+docker cp <CONTAINER_ID>:<PATH_OF_FILE_TO_COPY> <DESTINATION_PATH_ON_HOST>
+docker cp 0a1adc714dbf:/app/data/file.txt .
+# The "." period refers to the current directory in the host
+
+
+# Copy files or directories from host machine to docker container.
+docker cp <PATH_OF_FILE_TO_COPY> <CONTAINER_ID>:<DESTINATION_PATH_ON_CONTAINER>
+docker cp ./logs.txt 0a1adc714dbf:/app/data/
+# The "." period refers to the current directory in the host
