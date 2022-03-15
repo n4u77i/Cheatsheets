@@ -168,7 +168,7 @@ docker image load -i <TARGET_FILENAME>
 # To view logs of a container which are running or were started.
 # "-f" flag is used as follow which means to display logs in realtime
 docker logs -f <CONTAINER_ID>
-docker container -f <CONTAINER_ID>
+docker container logs -f <CONTAINER_ID>
 
 
 # To persist data of containers we use volumes, to create volume
@@ -212,3 +212,21 @@ docker cp 0a1adc714dbf:/app/data/file.txt .
 docker cp <PATH_OF_FILE_TO_COPY> <CONTAINER_ID>:<DESTINATION_PATH_ON_CONTAINER>
 docker cp ./logs.txt 0a1adc714dbf:/app/data/
 # The "." period refers to the current directory in the host
+
+
+# To share source with docker container so that you don't need to rebuild image everytime when code changes.
+# "-p" flag is used to publish port
+# "--name" flag is used to assign name to docker container
+# "-d" flag is used for detach
+# "-v" flag is used as volume to map project directory on host to docker container
+docker container run -d -p 8000:3000 -v <PATH_OF_PROJECT_DIRECTORY>:<PATH_ON_CONTAINER> --name <SET_NAME_OF_CONTAINER> <IMAGE_NAME>
+# Linux
+- docker container run -d -p 8000:3000 -v $(pwd):/app --name react_app_container react_app:1.0
+- docker container run -d -p 8000:3000 -v $"(pwd)":/app --name react_app_container react_app:1.0	# If path contains spaces
+# Powershell
+- docker container run -d -p 8000:3000 -v ${pwd}:/app --name react_app_container react_app:1.0
+- docker container run -d -p 8000:3000 -v "${pwd}:/app" --name react_app_container react_app:1.0	# If path contains spaces
+# CMD
+- docker container run -d -p 8000:3000 -v %cd%:/app --name react_app_container react_app:1.0
+- docker container run -d -p 8000:3000 -v "%cd%":/app --name react_app_container react_app:1.0		# If path contains spaces
+# It is preferred to rebuild image when code changes for production enviroment, but in case of development enviroment it is fine.
