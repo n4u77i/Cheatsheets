@@ -1,10 +1,10 @@
 Dockerfile instructions for building an image
 
-FROM				To specify the base image which contains files and directories and we build an image on top of it.
-WORKDIR				To specify the working directory. One we use this command, all commands will be executed within this working directory.
+FROM					To specify the base image which contains files and directories and we build an image on top of it.
+WORKDIR					To specify the working directory. One we use this command, all commands will be executed within this working directory.
 
 COPY ----|
-		 |----->	To copy files and directories.
+	 |----->			To copy files and directories.
 ADD -----|
 ADD					ADD has additional two features, i.e copy file from URL to destination or it uncompressess the zipped file after copying to destination
 					ADD https://..../file.json /destination/directory
@@ -12,8 +12,8 @@ ADD					ADD has additional two features, i.e copy file from URL to destination o
 
 RUN					To execute OS commands it could be windows or linux commands.
 ENV					For setting environment variables.
-EXPOSE				To tell docker that container will start on a given port. The container will listen on a given port. We need to map port on host to port on a docker to work properly.
-USER				The user which should run the application typically, to run application with the user having limited previliges.
+EXPOSE					To tell docker that container will start on a given port. The container will listen on a given port. We need to map port on host to port on a docker to work properly.
+USER					The user which should run the application typically, to run application with the user having limited previliges.
 					By default, docker runs container with root user whcih opens security holes. To avoid this create a new user with limited previliges and assign that user.
 					
 					For alpine image: RUN addgroup app_user && adduser -SG app_user app_user
@@ -22,7 +22,7 @@ USER				The user which should run the application typically, to run application 
 					Then second command will set USER as app_user and all commands will run with this user.
 
 CMD ----------|
-			  |-->	To specify a command which should be executed when we run the container. This will be the default command when container will start/run.
+	      |-->			To specify a command which should be executed when we run the container. This will be the default command when container will start/run.
 ENTRYPOINT ---|
 
 
