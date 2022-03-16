@@ -83,6 +83,10 @@ docker exec <CONTAINER_ID|CONTAINER_NAME> <COMMAND>
 docker exec -it <CONTAINER_ID> <<bash|sh>>
 
 
+# Run another interactive shell session inside a container as root user
+docker exec it -u root <CONTAINER_ID> sh
+
+
 # To create docker image.
 # "-t" flag is used as tag to name the image, ":" is used add a tag to image
 docker build -t <IMAGE_NAME>:<TAG_NAME|Optional> <PATH_TO_DOCKERFILE_OF_PROJECT>
@@ -230,3 +234,78 @@ docker container run -d -p 8000:3000 -v <PATH_OF_PROJECT_DIRECTORY>:<PATH_ON_CON
 - docker container run -d -p 8000:3000 -v %cd%:/app --name react_app_container react_app:1.0
 - docker container run -d -p 8000:3000 -v "%cd%":/app --name react_app_container react_app:1.0		# If path contains spaces
 # It is preferred to rebuild image when code changes for production enviroment, but in case of development enviroment it is fine.
+
+
+# To view only IDs of all containers.
+# "-a" flag is used as all to view all containers either running or stopped
+# "-q" flag is used as quiet which displays only ids
+docker container ps -a -q
+docker container ps -aq
+
+
+# To view only IDs of all images.
+# "-q" flag is used as quiet which displays only ids
+docker images -q
+
+
+# To delete all containers either running or stopped in one command (Linux only).
+docker container rm -f $(docker container ps -aq)
+
+
+# To delete all images in one command (Linux only).
+docker image rm $(docker images -q)
+docker image rmi $(docker images -q)
+docker image rm $(docker image ls -aq)
+docker image rmi $(docker image ls -aq)
+
+
+# To remove all containers stopped or running, all images used or dangling and all volumes used or unused.
+docker system prune -af
+
+
+# To view all networks in a docker
+docker network ls
+# When we run docker-compose, docker will automatically create a network for the application so that containers can talk to each other.
+
+
+########### DOCKER-COMPOSE ###########
+# To build image from docker-compose file.
+docker-compose build
+# You need to be in the project directory where docker-compose file is placed
+
+
+# To build image from docker-compose file without caching.
+# "--no-cache" is used as flag to not use cache
+docker-compose build --no-cache
+
+
+# To start an application with multiple containers.
+docker-compose up
+
+
+# To start an application with multiple containers if the images are not created.
+# "--build" flag is used to build images before starting containers
+docker-compose up --build
+
+
+# To start an application with multiple containers in background.
+# "-d" flag is used as detached mode which means in background
+docker-compose up -d
+
+
+# To view all running containers of an application.
+docker-compose ps
+
+
+# To stop and remove all containers of an application.
+docker-compose down
+# It will not remove images
+
+
+# To view logs of all containers of an application.
+docker-compose logs
+
+
+# To view logs of all containers of an application in realtime.
+# "-f" flag is used as follow which means to display logs in realtime
+docker-compose logs -f
