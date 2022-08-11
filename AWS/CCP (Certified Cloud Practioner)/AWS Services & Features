@@ -18,3 +18,12 @@ Feature:		Auto Scaling Groups
 Service:		AWS Elastic Disaster Recovery (CloudEndure Disaster Recovery)
 
 ----------------------------------------------------------------
+
+
+
+--------------- Management and Development Tools ---------------
+
+Service:		CloudShell
+Service:		AWS Cloud9
+
+----------------------------------------------------------------

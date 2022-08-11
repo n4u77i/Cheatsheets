@@ -225,3 +225,28 @@
 	 
 070) What is RPO?
 	 The maximum acceptable amount of data loss after an unplanned data-loss incident, expressed as an amount of time
+	 
+071) Each AWS Service has its own ___________ which you send requests
+	 Service Endpoint
+	 
+072) Some AWS Services Console will act as an umbrella console containing many AWS Services
+	 True
+	 
+073) The AWS Account ID is composed of ________
+	 12
+	 
+074) What is an AWS Account ID used for?
+	 when logging in with a non-root user account
+	 Cross-account roles
+	 Support cases
+	 
+075) What allows you to interact with the AWS API via PowerShell Cmdlets?
+	 AWS Tools for PowerShell
+	 
+076) What are the three format variations for ARN?
+	 arn:partition:service:region:account-id:resource-id
+	 arn:partition:service:region:account-id:resource-type/resource-id
+	 arn:partition:service:region:account-id:resource-type:resource-id
+	 
+077) What are uniquely identified AWS resources?
+	 Amazon Resource Names (ARNs)
