@@ -1,0 +1,20 @@
+------------------ AWS Global Infrastructure ------------------
+
+Service:		Amazon CloudFront (CDN)
+Service:		Amazon S3 Transfer Acceleration
+Service:		AWS Global Accelerator
+Service:		Direct Connect
+Service:		AWS Outposts
+Service:		AWS Ground Station
+
+---------------------------------------------------------------
+
+
+
+---------------------- Cloud Architecture ----------------------
+
+Feature:		Load Balancer
+Feature:		Auto Scaling Groups
+Service:		AWS Elastic Disaster Recovery (CloudEndure Disaster Recovery)
+
+----------------------------------------------------------------

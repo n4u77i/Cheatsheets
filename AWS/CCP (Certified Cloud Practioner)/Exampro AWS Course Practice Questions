@@ -1,0 +1,227 @@
+						ExamPro AWS Course Practice Questions
+						
+001) What is the main focus of the CCP certification?
+	 Billing and Business-Centric Concepts
+	 
+002) What type of hosting has one physical machine and is shared by hundreds of businesses​, but has limited functionality and poor isolation?
+	 Shared Hosting​
+	 
+003) What type of hosting is the physical machine is virtualized into sub-machines?
+	 Virtual Private Server​
+	 
+004) Which cloud computing Service on Amazon was launched in March of 2006?
+	 Simple Storage Service (S3)
+	 
+005) What Cloud Service offers having a virtual computer that​ can run applications, programs, and code?
+	 Compute
+	 
+006) What cloud service provides a virtual network that allows you to define internet connections or network isolations?
+	 Networking​
+	 
+007) What category of cloud service offering does the EBS Virtual Hard drive belong in?
+	 Storage
+	 
+008) What category of cloud service offering does the EC2 Virtual machine belong in?
+	 Compute
+	 
+009) What shares the same underlying OS so they are more efficient than multiple VMs​?
+	 Containers
+	 
+010) Which type of computing requires you to upload a piece of code, choose the amount of memory and duration?
+	 Functions
+	 
+011) Which type of cloud computing is a product that is run and managed by the service provider​?
+	 Software as a Service
+	 
+012) Which type of cloud computing is the basic building block for cloud IT. Provides access to networking features, computers, and data storage space?
+	 IaaS
+	 
+013) Which type of cloud computing is allows you to focus on the deployment and management of your apps without worry of provisioning, configuring, or understanding the hardware or OS?
+	 Platform as a Service​
+	 
+014) What cloud computing deployment model uses both on-Premise and ​a Cloud Service Provider?
+	 Hybrid
+	 
+015) Which cloud computing deployment model would be ideal for public sectors, hospitals, and insurance companies?
+	 Private Cloud
+	 
+016) Which type of cloud computing is commonly used by public sectors, hospitals, insurance companies, etc?
+	 On-Premise (Private Cloud)
+	 
+017) Which of the following is NOT a benefit of the cloud?
+	 Capital expense
+	 
+018) What benefit of the cloud allows you to operate continuously without failure for a designated period of time?
+	 High Availability
+	 
+019) Which benefit of cloud computing defines automate scaling during spikes and drops in demand​?
+	 Elastic
+	 
+020) Which benefit of cloud computing states it can provide data backup, disaster recovery, data replication, and fault tolerance​?
+	 Reliable
+	 
+021) Which benefit of cloud computing defines you can launch workloads anywhere in the world, simply choose a region​?
+	 Global
+	 
+022) Which of the following resources makes up the AWS Global Infrastructure?
+	 26 Launched Regions​
+	 84 Availability Zones​
+	 108 Direct Connection Locations​
+	 410+ Points of Presence​
+	 17 Local Zones
+	 
+023) Every region is physically isolated from and independent of every other region in terms of location, power, water supply
+	 True
+	 
+024) Amazon S3, Cloud Front, Route53, IAM are examples of what type of service?
+	 Global Services
+
+025) How many availability zones would a region generally have?
+	 3
+	 
+026) The use of AZ’s give customers the ability to operate production applications and databases that are more: (Select 3)
+	 Fault tolerant
+	 Scalable
+	 Highly available
+
+027) All traffic between AZs is encrypted
+	 True
+	 
+028) The scope of a fault domain could be ________
+	 an entire room in a datacenter
+	 specific servers in a rack
+	 the entire data center building
+	 an entire rack in a datacenter
+	 
+029) Each Amazon Region is designed to be completely isolated from the other Amazon Regions.
+	 True
+	 
+030) What can act as on and off-ramps to the AWS Global Network?
+	 Edge Locations
+	 
+031) What ensures your resources stay within the AWS Network and do not traverse over the public Internet?
+	 VPC Endpoints
+	 
+032) What are data centers that hold cached (copy) on the most popular files (eg. web pages, images, and videos) so that the delivery of distance to the end-users is reduced?
+	 Edge locations
+	 
+033) What are intermediate locations between an AWS Region and the end-user, and this location could be a data center or a collection of hardware?
+	 Points of Presence (PoP)
+	 
+034) PoPs live at the edge/intersection of two networks
+	 True
+	 
+035) What allows you to generate a special URL that can be used by end users to upload files to a nearby Edge Location. Once a file is uploaded to an Edge Location, it can move much faster within the AWS Network to reach S3?
+	 Amazon S3 Transfer Acceleration
+	 
+036) What can find the optimal path from the end-user to your web servers?
+	 AWS Global Accelerator
+	 
+037) What are the two very-fast network connection options that Direct Connect have? (Select 2)
+	 Lower Bandwidth 50Mbps-500Mbps
+	 Higher Bandwidth 1Gbps or 10Gbp
+	 
+038) What are trusted third-party data centers that you can establish a dedicated high-speed, low-latency connection from your on-premise to the AWS network.​?
+	 Direct Connect Locations
+	 
+039) What are data centers located very close to a densely populated area to provide single-digit millisecond low latency performance (eg. 7ms) for that area?
+	 Local Zones
+	 
+040) What is the purpose of Local Zone?
+	 The purpose of Local Zone is to support highly-demanding applications sensitive to latency:​
+	 Media & Entertainment​
+	 Electronic Design Automation​
+	 Ad-Tech​
+	 Machine Learning
+	 
+041) What allows for edge-computing on 5G Networks?
+	 Wavelength Zones
+	 
+042) What is the jurisdictional control or legal authority that can be asserted over data because its physical location is within jurisdictional boundaries?
+	 Data Sovereignty
+	 
+043) What is a physical rack of servers that you can put in your data center?
+	 AWS Outposts
+	 
+044) What is Data Residency?
+	 The physical or geographic location of where an organization or cloud resources reside.
+	 
+045) What is a Policy as Code service on AWS?
+	 AWS Config
+	 
+046) AWS has special regions for US regulation called ________
+	 GovCloud
+	 
+047) GovCloud Regions are globally accessible.
+	 False
+	 
+048) What are regions allow customers to host sensitive Controlled Unclassified Information and other types of regulated workloads?
+	 GovCloud
+	 
+049) What are the two Regions in Mainland China? (Select 2)
+	 Beijing CN
+	 Ningxia CN
+	 
+050) Which part of AWS Cloud's Sustainability goals states AWS is working towards having their AWS Global Infrastructure powered by 100% renewable energy by 2025?
+	 Renewable Energy
+	 
+051) What is a fully managed service that lets you control satellite communications, process data, and scale your operations without having to worry about building or managing your own ground station infrastructure?
+	 AWS Ground Station
+	 
+052) What is a frame design to hold and organize IT equipment?
+	 Server Rack
+	 
+053) What is a fully managed service that offers the same AWS infrastructure, AWS services, APIs, and tools to virtually any data center, co-location space, or on-premises facility for a truly consistent hybrid experience?
+	 AWS Outposts
+	 
+054) For Cloud Architecture Terminologies, what is your ability to grow rapidly or unimpeded?
+	 Scalability
+	 
+055) What are the business factors that a Solutions Architect always needs to consider? (Choose 2)
+	 (Security) How secure is this solution?
+	 (Cost) How much is this going to cost?
+	 
+056) What is High Availability (HA)?
+	 Your ability for your service to remain available by ensuring there is no single point of failure and/or ensure a certain level of performance
+	 
+057) What is a load balancer that allows you to evenly distribute traffic to multiple servers in one or more data centers?
+	 Elastic Load Balancer
+	 
+058) Vertical Scaling is known as ________
+	 Scaling Up
+	 
+059) What is your ability to increase your capacity based on the increasing demand for traffic, memory, and computing power?
+	 High Scalability
+	 
+060) What is an AWS feature that will automatically add or remove servers based on scaling rules you define?
+	 Auto Scaling Groups (ASG)
+	  
+061) What is your ability to automatically increase or decrease your capacity based on the current demand of traffic, memory, and computing power?
+	 High Elasticity
+	 
+062) What is when you run a duplicate standby database in another Availability Zone in case your primary database fails?
+	 RDS Multi-AZ
+	 
+063) What is the ability of your service to ensure there is no single point of failure. Preventing the chance of failure?
+	 Highly Fault Tolerant
+	 
+064) What continuously replicates your machines into a low-cost staging area in your target AWS account and preferred Region enabling fast and reliable recovery in case of IT data center failures?
+	 CloudEndure Disaster Recovery
+	 
+065) What is your ability to recover from a disaster and to prevent the loss of data solutions that recover from a disaster?
+	 Disaster Recovery (DR)
+	 
+066) What is the maximum acceptable amount of data loss after an unplanned data-loss incident, expressed as an amount of time?
+	 Recovery Point Objective (RPO)
+	 
+067) What is a document that outlines how a business will continue operating during an unplanned disruption in services?
+	 Business Continuity Plan
+	 
+068) What type of Disaster Recovery Option is a Scaled-down copy of your infrastructure running ready to scale up?
+	 Warm Standby
+	 
+069) What type of Disaster Recovery Option is where data is replicated to another region with minimal services running?
+	 Pilot Light
+	 
+070) What is RPO?
+	 The maximum acceptable amount of data loss after an unplanned data-loss incident, expressed as an amount of time
