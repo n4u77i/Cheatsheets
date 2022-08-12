@@ -250,3 +250,28 @@
 	 
 077) What are uniquely identified AWS resources?
 	 Amazon Resource Names (ARNs)
+	 
+078) What is a browser-based shell built into the AWS Management Console?
+	 AWS CloudShell
+	 
+079) What are the two Infrastructure as Code offerings on AWS?
+	 AWS CloudFormation (CFN)
+	 AWS Cloud Development Kit (CDK)
+	 
+080) Which of the following are the characteristics of Declarative IaC? (Select 3)
+	 Uses scripting languages eg. JSON, YAML, XML
+	 You say what you want, and the rest is filled in. ImplicitMore verbose, but zero chance of misconfiguration
+	 
+081) What is Infrastructure as Code (IaC)?
+	 You write a configuration script to automate creating, updating, or destroying cloud infrastructure.
+	 IaC is a blueprint of your infrastructure.
+	 IaC allows you to easily share, version, or inventory your cloud infrastructure.
+	 
+082) AWS SDK looks similar, but the key difference is CDK ensures Idempotent of your Infrastructure
+	 True
+	 
+083) What allows you to use your favorite programming language to write Infrastructure as Code (IaC)?
+	 AWS Cloud Development Kit
+	 
+084) What allows you to explore your stacks defined by CDK?
+	 AWS CDK Explorer

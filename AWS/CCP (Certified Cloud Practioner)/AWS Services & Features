@@ -25,5 +25,6 @@ Service:		AWS Elastic Disaster Recovery (CloudEndure Disaster Recovery)
 
 Service:		CloudShell
 Service:		AWS Cloud9
+Service:		AWS CloudFormation (CFN)
 
 ----------------------------------------------------------------
