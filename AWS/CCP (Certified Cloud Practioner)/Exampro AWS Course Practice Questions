@@ -102,7 +102,7 @@
 031) What ensures your resources stay within the AWS Network and do not traverse over the public Internet?
 	 VPC Endpoints
 	 
-032) What are data centers that hold cached (copy) on the most popular files (eg. web pages, images, and videos) so that the delivery of distance to the end-users is reduced?
+032) What are data centers that hold cached (copy) of the most popular files (eg. web pages, images, and videos) so that the delivery of distance to the end-users is reduced?
 	 Edge locations
 	 
 033) What are intermediate locations between an AWS Region and the end-user, and this location could be a data center or a collection of hardware?
@@ -260,7 +260,7 @@
 	 
 080) Which of the following are the characteristics of Declarative IaC? (Select 3)
 	 Uses scripting languages eg. JSON, YAML, XML
-	 You say what you want, and the rest is filled in. ImplicitMore verbose, but zero chance of misconfiguration
+	 You say what you want, and the rest is filled in. Implicit. More verbose, but zero chance of misconfiguration
 	 
 081) What is Infrastructure as Code (IaC)?
 	 You write a configuration script to automate creating, updating, or destroying cloud infrastructure.
@@ -275,3 +275,52 @@
 	 
 084) What allows you to explore your stacks defined by CDK?
 	 AWS CDK Explorer
+	 
+085) You can use the ________ CLI command to populate the credential file.
+	 aws configure
+	 
+086) What is the Shared Responsibility Model?
+	 The Shared Responsibility Model is a cloud security framework that defines the security obligations of the customer verses the Cloud Service Provider (CSP) e.g. AWS.
+	 
+087) Customers are responsible for Security in the Cloud
+	 True
+	 
+088) According to the Shared Responsibility Model category "Configuration of Virtual Infrastructure and Systems", what is the customer responsible for? (Select 3)
+	 Firewall
+	 Operating System
+	 Network
+	 
+089) According to the AWS Shared Responsible Model, what is the customer responsible for the Configuration of Managed Services or Third-Party Software?
+	 Platforms
+	 Applications
+	 Identity and Access Management (IAM)
+	 
+090) For PaaS, what is the Customer responsible for? (Select 2)
+	 Data
+	 Applications
+	 
+091) For IaaS, what is the Cloud Service provider responsible for?
+	 Virtualization
+	 Servers
+	 Storage
+	 Networking
+	 
+092) What is the customer responsible for the Virtual Machine (IaaS)? (Select 2)
+	 Container Runtime
+	 The Guest OS Configuration
+	 
+093) What is AWS responsible for the Managed Platform (PaaS)?
+	 Servers, OS, Networking, Storage, Security
+	 
+094) The customer is responsible for the data and the configuration of access controls that resides in AWS.
+	 True
+	 
+095) What is the Shared Responsibility Model?
+	 The Shared Responsibility Model is a simple visualization that helps determine what the customer is responsible for and what the CSP is responsible for related to AWS.
+	 
+096) Which AWS services are serverless /functions and have the least responsibility according to the Shared Responsibility Model? (Select 2)
+	 Amplify
+	 Lambda
+	 
+097) Which AWS services are Microservices/Containers?
+	 Fargate (Serverless Containers) and ECS/EKS Containers
