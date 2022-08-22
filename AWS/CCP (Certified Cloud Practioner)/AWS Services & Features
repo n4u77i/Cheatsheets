@@ -28,3 +28,29 @@ Service:		AWS Cloud9
 Service:		AWS CloudFormation (CFN)
 
 ----------------------------------------------------------------
+
+
+
+---------------------------- Compute ----------------------------
+
+VMs
+Service:		EC2
+Service:		LightSail
+
+Containers
+Service:		Elastic Container Service (ECS)
+Service:		Elastic Container Registry (ECR)
+Service:		Elastic Kubernetes Service (EKS)
+Service:		AWS Fargate
+
+Serverless
+Service:		AWS Lambda
+
+Costs and Capacity Management Computing services
+Service:		AWS Batch
+Service:		AWS Compute Optimizer
+Service:		Elastic Beanstalk (EB)
+Feature:		AWS Elastic Load Balancer (ELB)
+Feature:		Auto Scaling Group (ASGs)
+
+----------------------------------------------------------------

@@ -324,3 +324,47 @@
 	 
 097) Which AWS services are Microservices/Containers?
 	 Fargate (Serverless Containers) and ECS/EKS Containers
+	 
+098) What is an emulation of a physical computer using software?
+	 A Virtual Machine (VM)
+	 
+099) What allows you to launch Virtual Machines (VM)​. When we launch a Virtual Machine we call it an ______ ”instance”​?
+	 Elastic Compute Cloud (EC2)
+
+100) What is a container orchestration service that supports Docker containers?
+	 Elastic Container Service (ECS)
+	 
+101) What is the managed virtual server service? (It is the “friendly” version of EC2 Virtual Machines)
+	 Amazon Lightsail
+	 
+102) What is virtualizing an Operation System (OS) to run multiple workloads on a single OS instance?
+	 Containers
+	 
+103) What is AWS Lambda?
+	 AWS Lambda is a serverless functions service. You can run code without provisioning or managing servers. You upload small pieces of code, choose much memory, and how long the function is allowed to run before timing out. You a charged based on the runtime of the serverless function rounded to the nearest 100ms.​
+	 
+104) What is an AWS-supported open-source cluster management tool that makes it easy for you to deploy and manage High-Performance Computing (HPC) clusters on AWS?
+	 AWS ParallelCluster
+	 
+105) What is a Bare Metal Instance?
+	 You can launch EC2 instances that have no hypervisor so you can run workloads directly​ on the hardware for maximum performance and control. The M5 and R5 EC2 instances run are bare metal.​
+	 
+106) What is a combination of dedicated hardware and lightweight hypervisor enabling faster innovation and enhanced security?
+	 The Nitro System
+	 
+107) What allows you to build and launch your applications in a telecom data center?
+	 AWS Wavelength
+	 
+108) What is Edge Computing?​
+	 When you push your computing workloads outside of your networks to run close to the destination location.​
+	 
+109) What are ways to save on computing, by paying up in full or partially, by committing to yearly contracts, or by being flexible about availability and interruption to computing service? (Select 3)
+	 Savings Plan​
+	 Reserved Instanced
+	 EC2 Spot Instances
+	 
+110) What distributes traffic to multiple instances, can re-route traffic from unhealthy instances to healthy instances?
+	 Elastic Load Balancer (ELB)​
+	 
+111) What suggests how to reduce costs and improve performance by using machine learning to analyze your previous usage history?
+	 AWS Compute Optimizer
